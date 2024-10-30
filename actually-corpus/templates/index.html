@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="block">
+    <div style="margin-top: 100px;"></div>
+    <h1>Корпус "Записки юного врача"</h1>
+    <p>Корпус, основанный на рассказах из цикла "Записки юного врача" М.А. Булгакова</p>
+    <form class="d-flex" role="search" action="{{ url_for('results') }}" method="GET">
+        <!--указывает, что форма отправляет запрос на маршрут /results.-->
+        <!--method="GET": указывает, что форма использует GET-запрос, а данные будут переданы через URL.-->
+        <input
+                class="form-control me-2"
+                type="search"
+                name="search"
+                placeholder="Введите запрос"
+                aria-label="Search"
+                style="width: 600px;">
+        <button class="button button2" type="submit">Поиск</button>
+    </form>
+    <div style="margin-top: 30px;"></div>
+    <!-- блок с разработчиками сайта -->
+    <h2>Разработчики корпуса:</h2>
+    <div style="margin-top: 30px;"></div>
+    <div class="image">
+        <div class="card-index">
+            <figure>
+                <img src="{{ url_for('static', filename='images/masha2.jpg') }}" alt="мяу 1" class="image-item">
+                <figcaption>
+                    Мария Бандулевич
+                    <ul>
+                        <li>разработка сайта</li>
+                        <li>деплой сайта</li>
+                    </ul>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card-index">
+            <figure>
+                <img src="{{ url_for('static', filename='images/alesya.jpg') }}" alt="мяу 2" class="image-item">
+                <figcaption>
+                    Алеся Воинская
+                    <ul>
+                        <li>разработка сайта</li>
+                        <li>разметка корпуса:</li>
+                        <ul>
+                            <li>морфологический анализ</li>
+                            <li>конвертация в json</li>
+                        </ul>
+                    </ul>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card-index">
+            <figure>
+                <img src="{{ url_for('static', filename='images/polina.jpg') }}" alt="мяу 3" class="image-item">
+                <figcaption>
+                    Полина Серегина
+                    <ul>
+                        <li>разработка функции поиска</li>
+                        <li>тестирование функции поиска</li>
+                    </ul>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card-index">
+            <figure>
+                <img src="{{ url_for('static', filename='images/kate.jpg') }}" alt="мяу 4" class="image-item">
+                <figcaption>
+                    Екатерина Федорищева
+                    <ul>
+                        <li>сбор текста</li>
+                        <li>первичная обработка корпуса</li>
+                        <li>тестирование функции поиска</li>
+                    </ul>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    <br>
+    <p>НИУ ВШЭ, 2024</p>
+</div>
+
+{% endblock %}

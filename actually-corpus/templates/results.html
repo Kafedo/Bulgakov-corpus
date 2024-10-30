@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Результаты поиска{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Результаты поиска для: {{ query }}</h2>
+    <br>
+
+    <p>Всего найдено предложений: {{ count }}</p>
+    {% for index in range(results_length) %}
+    {% if "Источник" in results[index] %}
+    <div class="alert alert-info" style="background-color: white;">
+        <p>{{ results[index] | nl2br }}</p>
+        <button
+                class="btn btn-primary copy-btn"
+                onclick="copyToClipboard('{{ texts[index] }} [{{ info[index] }} ({{links[index]}})]')">Скопировать
+            пример
+        </button>
+        <!--в onclick= прописываем, что и в каком формате вставляем в буфер обмена-->
+    </div>
+    {% else %}
+    <div class="alert alert-info" style="background-color: white;">
+        <p>{{ results[index] | nl2br }}</p>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <br>
+    <!-- Кнопка для возвращения на главную страницу -->
+    <div class="mt-3">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Вернуться на главную страницу</a>
+    </div>
+    <br>
+</div>
+
+<!-- функция на JavaScript для копирования текста в буфер обмена -->
+<script>
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text);
+}
+
+</script>
+<!--navigator.clipboard взаимодействует с буфером обмена-->
+<!--Метод writeText(text) принимает строку text и копирует её в буфер обмена-->
+
+{% endblock %}

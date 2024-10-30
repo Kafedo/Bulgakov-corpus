@@ -1,0 +1,73 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right top, white, #4389d9);
+    background-attachment: fixed;
+    margin: 0;
+}
+
+.block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navbar {
+  z-index: 1000; /* Установите высокое значение, чтобы панель всегда была поверх других элементов */
+}
+
+
+.button {
+  background-color: #008CBA;
+  border: none;
+  border-radius:10px;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.image {
+    display: flex;          /* Выстраивает изображения в строку */
+    gap: 40px;              /* Добавляет отступ между изображениями */
+    max-width: 100%;        /* Ограничивает ширину контейнера */
+    overflow-x: auto;       /* Включает горизонтальную прокрутку, если не помещаются */
+}
+
+.image-item {
+    width: 185px;           /* Фиксированная ширина изображения */
+    height: 185px;          /* Фиксированная высота изображения */
+    object-fit: cover;      /* Обрезает изображение, чтобы заполнить заданные размеры */
+    border-radius: 8px;     /* Дополнительно: закругленные углы */
+}
+
+.card-index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Равномерное распределение между изображением и описанием */
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 360px; /* Фиксированная высота для единообразия */
+    margin: 10px;
+    background-color: white; /* Устанавливает белый цвет фона для карточки */
+    border-radius: 8px; /* Добавляет скругление углов (по желанию) */
+}
